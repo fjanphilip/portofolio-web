@@ -3,8 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Jan Philip Faith Portofolio',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  description: 'Created with Philippp',
 }
 
 export default function RootLayout({
