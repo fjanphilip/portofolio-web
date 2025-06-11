@@ -146,14 +146,34 @@ export default function Portfolio() {
                 Fullstack Developer with medium-level Laravel expertise since 2020, experienced in PHP, JavaScript, and Python. Strong team player with good communication skills, adaptability, and a growth mindset.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="bg-white text-black hover:bg-gray-200 gap-2">
-                  <Mail className="h-4 w-4" />
-                  Get In Touch
-                </Button>
-                <Button variant="outline" size="lg" className="border-gray-600 text-black hover:bg-gray-800 hover:text-white gap-2">
-                  <Github className="h-4 w-4" />
-                  View GitHub
-                </Button>
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=fjanphilip9.jp@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    size="lg"
+                    className="bg-white text-black hover:bg-gray-200 gap-2"
+                  >
+                    <Mail className="h-4 w-4" />
+                    Get In Touch
+                  </Button>
+                </a>
+
+                <a
+                  href="https://github.com/fjanphilip" // ganti dengan username GitHub kamu
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-gray-600 text-black hover:bg-gray-800 hover:text-white gap-2"
+                  >
+                    <Github className="h-4 w-4" />
+                    View GitHub
+                  </Button>
+                </a>
               </div>
             </div>
             <div className="flex justify-center lg:justify-end">
@@ -568,9 +588,9 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Content */}
-      <section id="contact" className="py-20 px-6 bg-black">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-16">
+      <section id="contact" className="py-20 px-6 bg-black min-h-screen flex items-center justify-center">
+        <div className="container mx-auto max-w-4xl">
+          <div className="grid lg:grid-cols-1 gap-16 text-center">
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl font-bold mb-6 text-white">Let's Work Together</h2>
@@ -580,103 +600,39 @@ export default function Portfolio() {
                 </p>
               </div>
 
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="bg-gray-800 p-3 rounded-full">
-                    <Mail className="h-6 w-6 text-white" />
-                  </div>
-                  <span className="text-gray-300">fjanphilip9.jp@email.com</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="bg-gray-800 p-3 rounded-full">
-                    <Phone className="h-6 w-6 text-white" />
-                  </div>
-                  <span className="text-gray-300">+62 813-5915-2965</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="bg-gray-800 p-3 rounded-full">
-                    <MapPin className="h-6 w-6 text-white" />
-                  </div>
-                  <span className="text-gray-300">Surabaya, Indonesia</span>
-                </div>
-              </div>
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
+          <div className="flex items-center gap-4">
+            <div className="bg-gray-800 p-3 rounded-full">
+              <Mail className="h-6 w-6 text-white" />
             </div>
-
-            <Card className="bg-gray-900 border-gray-800">
-              <CardHeader>
-                <CardTitle className="text-white">Send Me a Message</CardTitle>
-                <CardDescription className="text-gray-400">
-                  Fill out the form below and I'll get back to you as soon as possible.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form className="space-y-6">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="firstName" className="text-gray-300">
-                        First Name
-                      </Label>
-                      <Input
-                        id="firstName"
-                        placeholder="John"
-                        className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500 focus:border-gray-600"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="lastName" className="text-gray-300">
-                        Last Name
-                      </Label>
-                      <Input
-                        id="lastName"
-                        placeholder="Doe"
-                        className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500 focus:border-gray-600"
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-gray-300">
-                      Email
-                    </Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="john@example.com"
-                      className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500 focus:border-gray-600"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="subject" className="text-gray-300">
-                      Subject
-                    </Label>
-                    <Input
-                      id="subject"
-                      placeholder="Project Inquiry"
-                      className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500 focus:border-gray-600"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-gray-300">
-                      Message
-                    </Label>
-                    <Textarea
-                      id="message"
-                      placeholder="Tell me about your project..."
-                      className="min-h-[120px] bg-gray-800 border-gray-700 text-white placeholder:text-gray-500 focus:border-gray-600"
-                    />
-                  </div>
-                  <Button type="submit" className="w-full bg-white text-black hover:bg-gray-200">
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+            <span className="text-gray-300">fjanphilip9.jp@email.com</span>
           </div>
 
-          <div className="mt-16 pt-8 border-t border-gray-800 text-center">
-            <p className="text-gray-500">© 2024 Jan Philip Faith. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <div className="bg-gray-800 p-3 rounded-full">
+              <Phone className="h-6 w-6 text-white" />
+            </div>
+            <span className="text-gray-300">+62 813-5915-2965</span>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <div className="bg-gray-800 p-3 rounded-full">
+              <MapPin className="h-6 w-6 text-white" />
+            </div>
+            <span className="text-gray-300">Surabaya, Indonesia</span>
           </div>
         </div>
-      </section>
+
+
+      </div>
+    </div>
+
+    <div className="mt-20 pt-8 border-t border-gray-800 text-center">
+      <p className="text-gray-500">© 2024 Jan Philip Faith. All rights reserved.</p>
+    </div>
+  </div>
+</section>
+
     </div>
   )
 }
