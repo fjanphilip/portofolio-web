@@ -180,8 +180,8 @@ export default function Portfolio() {
               <div className="relative">
                 <div className="w-80 h-80 rounded-full overflow-hidden border-2 border-gray-700 shadow=xl">
                   <Image
-                    src="/PASFOTO.jpg?height=320&width=320"
-                    alt="Alex Johnson - Full Stack Developer"
+                    src="/PASFOTO.jpeg?height=320&width=320"
+                    alt="Jan Philip Faith - Full Stack Developer"
                     width={320}
                     height={320}
                     className="object-cover relative -top-10"
@@ -619,7 +619,7 @@ export default function Portfolio() {
             <div className="bg-gray-800 p-3 rounded-full">
               <MapPin className="h-6 w-6 text-white" />
             </div>
-            <span className="text-gray-300">Surabaya, Indonesia</span>
+            <span className="text-gray-300">Jakarta, Indonesia</span>
           </div>
         </div>
 
