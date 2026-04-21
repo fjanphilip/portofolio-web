@@ -1,0 +1,236 @@
+{
+  "projects": [
+    {
+      "id": "cmo8h24xo000eykl41hzapynm",
+      "title": "Feature Selection for rice plant using Naive Bayes",
+      "description": "This project implements a machine learning approach to classify rice crop quality based on agronomic features, using two methods: Naive Bayes with all features, and Naive Bayes with feature selection using the Chi-Square method.",
+      "techStack": "[\"Python\",\"Streamlit\"]",
+      "imageUrl": "/project/streamlit.jpg",
+      "demoUrl": "https://gvmgrmiocqhjeftgqkygsy.streamlit.app/",
+      "repoUrl": "https://github.com/fjanphilip/Klasifikasi-Tanaman-Padi-Menggunakan-Naive-Bayes-dan-Seleksi-Fitur-Chi-Square",
+      "order": 1,
+      "createdAt": "2026-04-21T10:19:28.765Z",
+      "updatedAt": "2026-04-21T10:19:28.765Z"
+    },
+    {
+      "id": "cmo8h24xs000fykl4shdbyudk",
+      "title": "Oil Filtering Data",
+      "description": "Developed a desktop application using PyQt to filter data and monitor the inflow and outflow of oil volume. This project focuses on providing an efficient and user-friendly tool for accurate oil transaction tracking.",
+      "techStack": "[\"Python\",\"PyQt\"]",
+      "imageUrl": "/project/filtering_oil.jpg",
+      "demoUrl": "https://github.com/fjanphilip/PyQt-Filtering-Data",
+      "repoUrl": "https://github.com/fjanphilip/PyQt-Filtering-Data",
+      "order": 2,
+      "createdAt": "2026-04-21T10:19:28.768Z",
+      "updatedAt": "2026-04-21T10:19:28.768Z"
+    },
+    {
+      "id": "cmo8h24xu000gykl4j9onjit4",
+      "title": "IoT - Water Filtering",
+      "description": "Integrated sensor data to monitor water quality and automate filtration processes, enabling real-time monitoring and remote control to improve the efficiency and reliability of the clean water supply system.",
+      "techStack": "[\"C++\",\"Arduino\",\"Blynk\"]",
+      "imageUrl": "/project/walter_filtering.jpg",
+      "demoUrl": "https://github.com/fjanphilip/IoT-Water-Filtering",
+      "repoUrl": "https://github.com/fjanphilip/IoT-Water-Filtering",
+      "order": 3,
+      "createdAt": "2026-04-21T10:19:28.771Z",
+      "updatedAt": "2026-04-21T10:19:28.771Z"
+    }
+  ],
+  "certificates": [
+    {
+      "id": "cmo8h24xx000hykl4r2nuun8i",
+      "name": "Fundamental CyberSec",
+      "issuer": "Coding Studio",
+      "issuedDate": "2024",
+      "credentialUrl": null,
+      "imageUrl": "/certificate/75BB79A5E8-75BB5C58B9-75AF8E57EB.jpg",
+      "order": 1,
+      "createdAt": "2026-04-21T10:19:28.774Z",
+      "updatedAt": "2026-04-21T10:19:28.774Z"
+    },
+    {
+      "id": "cmo8h24y0000iykl42oasxpq0",
+      "name": "Python Core",
+      "issuer": "Coding SoloLearn",
+      "issuedDate": "2019",
+      "credentialUrl": null,
+      "imageUrl": "/certificate/48079ad9-4405-49ee-b75a-4de54b8f811b.jpg",
+      "order": 2,
+      "createdAt": "2026-04-21T10:19:28.777Z",
+      "updatedAt": "2026-04-21T10:19:28.777Z"
+    },
+    {
+      "id": "cmo8h24y4000jykl4883zqna7",
+      "name": "Digital Literacy",
+      "issuer": "Kominfo",
+      "issuedDate": "2021",
+      "credentialUrl": null,
+      "imageUrl": "/certificate/1271160701020001.jpg",
+      "order": 3,
+      "createdAt": "2026-04-21T10:19:28.780Z",
+      "updatedAt": "2026-04-21T10:19:28.780Z"
+    },
+    {
+      "id": "cmo8h24y7000kykl48eda5k7p",
+      "name": "CCNA SRWE",
+      "issuer": "Cisco",
+      "issuedDate": "2022",
+      "credentialUrl": null,
+      "imageUrl": "/certificate/CCNASRWEUpdate20250610-28-9bm8gb-1.jpg",
+      "order": 4,
+      "createdAt": "2026-04-21T10:19:28.783Z",
+      "updatedAt": "2026-04-21T10:19:28.783Z"
+    },
+    {
+      "id": "cmo8h24ya000lykl4gux6d1db",
+      "name": "Python Introduce",
+      "issuer": "DataCamp",
+      "issuedDate": "2019",
+      "credentialUrl": null,
+      "imageUrl": "/certificate/certificate-1.jpg",
+      "order": 5,
+      "createdAt": "2026-04-21T10:19:28.786Z",
+      "updatedAt": "2026-04-21T10:19:28.786Z"
+    },
+    {
+      "id": "cmo8h24yd000mykl49aivunh2",
+      "name": "CCNAv7",
+      "issuer": "Cisco",
+      "issuedDate": "2022",
+      "credentialUrl": null,
+      "imageUrl": "/certificate/CCNA-_Switching-_Routing-_and_Wireless_Essentials_certificate_fjanphilip9-jp-gmail-com_20175d96-9d1e-4812-9c63-2c66141b5fb1.jpg",
+      "order": 6,
+      "createdAt": "2026-04-21T10:19:28.789Z",
+      "updatedAt": "2026-04-21T10:19:28.789Z"
+    }
+  ],
+  "skills": [
+    {
+      "id": "cmo8h24vf0000ykl4uk8sqx7o",
+      "name": "React",
+      "category": "Frontend",
+      "iconUrl": null,
+      "order": 1,
+      "createdAt": "2026-04-21T10:19:28.683Z",
+      "updatedAt": "2026-04-21T10:19:28.683Z"
+    },
+    {
+      "id": "cmo8h24wg0001ykl4me0bcq17",
+      "name": "Next.js",
+      "category": "Frontend",
+      "iconUrl": null,
+      "order": 2,
+      "createdAt": "2026-04-21T10:19:28.720Z",
+      "updatedAt": "2026-04-21T10:19:28.720Z"
+    },
+    {
+      "id": "cmo8h24wj0002ykl4ron7q6v8",
+      "name": "TypeScript",
+      "category": "Frontend",
+      "iconUrl": null,
+      "order": 3,
+      "createdAt": "2026-04-21T10:19:28.723Z",
+      "updatedAt": "2026-04-21T10:19:28.723Z"
+    },
+    {
+      "id": "cmo8h24wm0003ykl4zbn516ze",
+      "name": "Tailwind CSS",
+      "category": "Frontend",
+      "iconUrl": null,
+      "order": 4,
+      "createdAt": "2026-04-21T10:19:28.726Z",
+      "updatedAt": "2026-04-21T10:19:28.726Z"
+    },
+    {
+      "id": "cmo8h24wp0004ykl48nr065nd",
+      "name": "Vue.js",
+      "category": "Frontend",
+      "iconUrl": null,
+      "order": 5,
+      "createdAt": "2026-04-21T10:19:28.730Z",
+      "updatedAt": "2026-04-21T10:19:28.730Z"
+    },
+    {
+      "id": "cmo8h24wt0005ykl4lk8ldhh4",
+      "name": "Node.js",
+      "category": "Backend",
+      "iconUrl": null,
+      "order": 1,
+      "createdAt": "2026-04-21T10:19:28.733Z",
+      "updatedAt": "2026-04-21T10:19:28.733Z"
+    },
+    {
+      "id": "cmo8h24ww0006ykl4r1z7j6cb",
+      "name": "PHP",
+      "category": "Backend",
+      "iconUrl": null,
+      "order": 2,
+      "createdAt": "2026-04-21T10:19:28.736Z",
+      "updatedAt": "2026-04-21T10:19:28.736Z"
+    },
+    {
+      "id": "cmo8h24wz0007ykl4dqtqgp5v",
+      "name": "Laravel",
+      "category": "Backend",
+      "iconUrl": null,
+      "order": 3,
+      "createdAt": "2026-04-21T10:19:28.740Z",
+      "updatedAt": "2026-04-21T10:19:28.740Z"
+    },
+    {
+      "id": "cmo8h24x30008ykl40clvo08j",
+      "name": "Python",
+      "category": "Backend",
+      "iconUrl": null,
+      "order": 4,
+      "createdAt": "2026-04-21T10:19:28.743Z",
+      "updatedAt": "2026-04-21T10:19:28.743Z"
+    },
+    {
+      "id": "cmo8h24x60009ykl4lqsz1lhn",
+      "name": "C++",
+      "category": "Backend",
+      "iconUrl": null,
+      "order": 5,
+      "createdAt": "2026-04-21T10:19:28.747Z",
+      "updatedAt": "2026-04-21T10:19:28.747Z"
+    },
+    {
+      "id": "cmo8h24xa000aykl483idfbwt",
+      "name": "MySQL",
+      "category": "Backend",
+      "iconUrl": null,
+      "order": 6,
+      "createdAt": "2026-04-21T10:19:28.750Z",
+      "updatedAt": "2026-04-21T10:19:28.750Z"
+    },
+    {
+      "id": "cmo8h24xd000bykl428g1h4mz",
+      "name": "Adobe Photoshop",
+      "category": "Design",
+      "iconUrl": null,
+      "order": 1,
+      "createdAt": "2026-04-21T10:19:28.753Z",
+      "updatedAt": "2026-04-21T10:19:28.753Z"
+    },
+    {
+      "id": "cmo8h24xg000cykl46rkob0os",
+      "name": "Autodesk Inventor",
+      "category": "Design",
+      "iconUrl": null,
+      "order": 2,
+      "createdAt": "2026-04-21T10:19:28.757Z",
+      "updatedAt": "2026-04-21T10:19:28.757Z"
+    },
+    {
+      "id": "cmo8h24xk000dykl4muwlrz1e",
+      "name": "Fritzing",
+      "category": "Design",
+      "iconUrl": null,
+      "order": 3,
+      "createdAt": "2026-04-21T10:19:28.761Z",
+      "updatedAt": "2026-04-21T10:19:28.761Z"
+    }
+  ]
+}
