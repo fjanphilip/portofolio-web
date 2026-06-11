@@ -60,8 +60,8 @@ export function ProjectForm({ project }: ProjectFormProps) {
       } else if (result?.success) {
         setOpen(false);
       }
-    } catch {
-      console.error("Failed to save project");
+    } catch (error) {
+      console.error("Failed to save project:", error);
     } finally {
       setLoading(false);
     }
