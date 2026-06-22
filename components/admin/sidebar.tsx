@@ -40,21 +40,25 @@ export function AdminSidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r border-gray-800 bg-gray-950">
+    <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r border-[#27272A] bg-[#09090B]">
       <div className="flex h-full flex-col">
         {/* Header */}
-        <div className="flex items-center gap-3 border-b border-gray-800 p-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white">
+        <div className="flex items-center gap-3 border-b border-[#27272A] p-6">
+          <div className="flex h-10 w-10 items-center justify-center rounded bg-white">
             <Code className="h-5 w-5 text-black" />
           </div>
           <div>
-            <h2 className="text-sm font-bold text-white">Admin Panel</h2>
-            <p className="text-xs text-gray-500">Portfolio Manager</p>
+            <h2 className="text-sm font-bold text-white uppercase tracking-widest font-display-xl">
+              myportfolio
+            </h2>
+            <p className="text-[10px] text-gray-500 font-label-sm uppercase tracking-wider">
+              Admin Panel
+            </p>
           </div>
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 space-y-1 px-3 py-4">
+        <nav className="flex-1 space-y-2 px-3 py-6">
           {navItems.map((item) => {
             const isActive =
               pathname === item.href ||
@@ -64,10 +68,10 @@ export function AdminSidebar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200 ${
+                className={`flex items-center gap-3 rounded px-3 py-2.5 text-xs font-label-sm uppercase tracking-widest transition-all duration-200 ${
                   isActive
-                    ? "bg-white text-black"
-                    : "text-gray-400 hover:bg-gray-800/50 hover:text-white"
+                    ? "bg-white text-[#09090B] font-bold"
+                    : "text-zinc-400 hover:bg-[#141313] hover:text-white"
                 }`}
               >
                 <item.icon className="h-4 w-4" />
@@ -78,10 +82,10 @@ export function AdminSidebar() {
         </nav>
 
         {/* Footer */}
-        <div className="border-t border-gray-800 p-3 space-y-2">
+        <div className="border-t border-[#27272A] p-3 space-y-2">
           <Link
             href="/"
-            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-400 hover:bg-gray-800/50 hover:text-white transition-all duration-200"
+            className="flex items-center gap-3 rounded px-3 py-2.5 text-xs font-label-sm uppercase tracking-widest text-zinc-400 hover:bg-[#141313] hover:text-white transition-all duration-200"
           >
             <ChevronLeft className="h-4 w-4" />
             Back to Site
@@ -90,7 +94,7 @@ export function AdminSidebar() {
             <Button
               type="submit"
               variant="ghost"
-              className="w-full justify-start gap-3 px-3 py-2.5 text-sm font-medium text-red-400 hover:bg-red-950/50 hover:text-red-300"
+              className="w-full justify-start gap-3 px-3 py-2.5 text-xs font-label-sm uppercase tracking-widest text-red-400 hover:bg-red-950/30 hover:text-red-300 rounded"
             >
               <LogOut className="h-4 w-4" />
               Logout

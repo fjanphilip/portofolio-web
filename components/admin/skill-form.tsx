@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/dialog";
 import { createSkill, updateSkill } from "@/lib/actions/skills";
 import { Loader2, Plus, Pencil } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 interface SkillFormProps {
   skill?: {
@@ -38,6 +39,7 @@ export function SkillForm({ skill }: SkillFormProps) {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string[]>>({});
   const [category, setCategory] = useState(skill?.category || "");
+  const { toast } = useToast();
 
   const isEdit = !!skill;
 
@@ -55,12 +57,26 @@ export function SkillForm({ skill }: SkillFormProps) {
 
       if (result?.error && typeof result.error === "object") {
         setErrors(result.error as Record<string, string[]>);
+        toast({
+          variant: "destructive",
+          title: "Gagal Menyimpan Keahlian",
+          description: "Silakan periksa form dan coba lagi.",
+        });
       } else if (result?.success) {
+        toast({
+          title: isEdit ? "Keahlian Diperbarui" : "Keahlian Ditambahkan",
+          description: `Keahlian "${formData.get("name")}" berhasil disimpan.`,
+        });
         setOpen(false);
         if (!isEdit) setCategory("");
       }
-    } catch {
-      console.error("Failed to save skill");
+    } catch (error) {
+      console.error("Failed to save skill:", error);
+      toast({
+        variant: "destructive",
+        title: "Terjadi Kesalahan",
+        description: "Gagal menyimpan keahlian karena kesalahan tidak terduga.",
+      });
     } finally {
       setLoading(false);
     }
@@ -73,20 +89,20 @@ export function SkillForm({ skill }: SkillFormProps) {
           <Button
             variant="ghost"
             size="sm"
-            className="text-gray-400 hover:text-white hover:bg-gray-800"
+            className="text-zinc-400 hover:text-white hover:bg-[#141313] border border-transparent hover:border-[#27272A] transition-all duration-200"
           >
             <Pencil className="h-4 w-4" />
           </Button>
         ) : (
-          <Button className="bg-white text-black hover:bg-gray-200 gap-2">
+          <Button className="bg-white text-black hover:bg-zinc-200 transition-all duration-200 font-bold gap-2">
             <Plus className="h-4 w-4" />
             Add Skill
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent className="bg-gray-900 border-gray-800 max-w-lg">
+      <DialogContent className="bg-[#09090B] border-[#27272A] max-w-lg">
         <DialogHeader>
-          <DialogTitle className="text-white">
+          <DialogTitle className="text-white font-bold tracking-tight">
             {isEdit ? "Edit Skill" : "Add New Skill"}
           </DialogTitle>
         </DialogHeader>
@@ -97,12 +113,12 @@ export function SkillForm({ skill }: SkillFormProps) {
             </div>
           )}
           <div className="space-y-2">
-            <Label htmlFor="name" className="text-gray-300">Skill Name *</Label>
+            <Label htmlFor="name" className="text-zinc-300 text-xs uppercase tracking-wider font-semibold">Skill Name *</Label>
             <Input
               id="name"
               name="name"
               defaultValue={skill?.name || ""}
-              className="bg-gray-800 border-gray-700 text-white"
+              className="bg-[#141313] border-[#27272A] text-white placeholder-zinc-600 focus-visible:ring-1 focus-visible:ring-zinc-400"
               placeholder="e.g. React, Node.js"
             />
             {errors.name && (
@@ -111,17 +127,17 @@ export function SkillForm({ skill }: SkillFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="category" className="text-gray-300">Category *</Label>
+            <Label htmlFor="category" className="text-zinc-300 text-xs uppercase tracking-wider font-semibold">Category *</Label>
             <Select value={category} onValueChange={setCategory}>
-              <SelectTrigger className="bg-gray-800 border-gray-700 text-white">
+              <SelectTrigger className="bg-[#141313] border-[#27272A] text-white focus:ring-1 focus:ring-zinc-400">
                 <SelectValue placeholder="Select category" />
               </SelectTrigger>
-              <SelectContent className="bg-gray-800 border-gray-700">
+              <SelectContent className="bg-[#09090B] border-[#27272A]">
                 {categories.map((cat) => (
                   <SelectItem
                     key={cat}
                     value={cat}
-                    className="text-white hover:bg-gray-700 focus:bg-gray-700 focus:text-white"
+                    className="text-white hover:bg-[#141313] focus:bg-[#141313] focus:text-white cursor-pointer"
                   >
                     {cat}
                   </SelectItem>
@@ -134,16 +150,16 @@ export function SkillForm({ skill }: SkillFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="iconFile" className="text-gray-300">Skill Icon (Upload)</Label>
+            <Label htmlFor="iconFile" className="text-zinc-300 text-xs uppercase tracking-wider font-semibold">Skill Icon (Upload)</Label>
             <Input
               id="iconFile"
               name="iconFile"
               type="file"
               accept="image/*"
-              className="bg-gray-800 border-gray-700 text-white cursor-pointer"
+              className="bg-[#141313] border-[#27272A] text-white cursor-pointer file:text-zinc-400 focus-visible:ring-1 focus-visible:ring-zinc-400"
             />
             {skill?.iconUrl && (
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-zinc-500 mt-1">
                 Laman sekarang: <a href={skill.iconUrl} target="_blank" rel="noreferrer" className="text-blue-400 hover:underline">Lihat Icon</a>
               </p>
             )}
@@ -151,20 +167,20 @@ export function SkillForm({ skill }: SkillFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="order" className="text-gray-300">Display Order</Label>
+            <Label htmlFor="order" className="text-zinc-300 text-xs uppercase tracking-wider font-semibold">Display Order</Label>
             <Input
               id="order"
               name="order"
               type="number"
               defaultValue={skill?.order || 0}
-              className="bg-gray-800 border-gray-700 text-white"
+              className="bg-[#141313] border-[#27272A] text-white focus-visible:ring-1 focus-visible:ring-zinc-400"
             />
           </div>
 
           <Button
             type="submit"
             disabled={loading}
-            className="w-full bg-white text-black hover:bg-gray-200"
+            className="w-full bg-white text-black hover:bg-zinc-200 transition-all duration-200 font-bold"
           >
             {loading && <Loader2 className="h-4 w-4 animate-spin mr-2" />}
             {isEdit ? "Update Skill" : "Create Skill"}

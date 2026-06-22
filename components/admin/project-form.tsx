@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { createProject, updateProject } from "@/lib/actions/projects";
 import { Loader2, Plus, Pencil } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 interface ProjectFormProps {
   project?: {
@@ -32,6 +33,7 @@ export function ProjectForm({ project }: ProjectFormProps) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string[]>>({});
+  const { toast } = useToast();
 
   const isEdit = !!project;
 
@@ -57,11 +59,25 @@ export function ProjectForm({ project }: ProjectFormProps) {
 
       if (result?.error && typeof result.error === "object") {
         setErrors(result.error as Record<string, string[]>);
+        toast({
+          variant: "destructive",
+          title: "Gagal menyimpan project",
+          description: "Silakan periksa form dan coba lagi.",
+        });
       } else if (result?.success) {
+        toast({
+          title: isEdit ? "Project diperbarui" : "Project ditambahkan",
+          description: `Project "${formData.get("title")}" berhasil disimpan.`,
+        });
         setOpen(false);
       }
     } catch (error) {
       console.error("Failed to save project:", error);
+      toast({
+        variant: "destructive",
+        title: "Terjadi kesalahan",
+        description: "Gagal menyimpan project karena kesalahan tidak terduga.",
+      });
     } finally {
       setLoading(false);
     }
@@ -74,20 +90,20 @@ export function ProjectForm({ project }: ProjectFormProps) {
           <Button
             variant="ghost"
             size="sm"
-            className="text-gray-400 hover:text-white hover:bg-gray-800"
+            className="text-zinc-400 hover:text-white hover:bg-[#141313] border border-transparent hover:border-[#27272A] transition-all duration-200"
           >
             <Pencil className="h-4 w-4" />
           </Button>
         ) : (
-          <Button className="bg-white text-black hover:bg-gray-200 gap-2">
+          <Button className="bg-white text-black hover:bg-zinc-200 transition-all duration-200 font-bold gap-2">
             <Plus className="h-4 w-4" />
             Add Project
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent className="bg-gray-900 border-gray-800 max-w-lg max-h-[90vh] overflow-y-auto">
+      <DialogContent className="bg-[#09090B] border-[#27272A] max-w-lg max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-white">
+          <DialogTitle className="text-white font-bold tracking-tight">
             {isEdit ? "Edit Project" : "Add New Project"}
           </DialogTitle>
         </DialogHeader>
@@ -98,12 +114,12 @@ export function ProjectForm({ project }: ProjectFormProps) {
             </div>
           )}
           <div className="space-y-2">
-            <Label htmlFor="title" className="text-gray-300">Title *</Label>
+            <Label htmlFor="title" className="text-zinc-300 text-xs uppercase tracking-wider font-semibold">Title *</Label>
             <Input
               id="title"
               name="title"
               defaultValue={project?.title || ""}
-              className="bg-gray-800 border-gray-700 text-white"
+              className="bg-[#141313] border-[#27272A] text-white placeholder-zinc-600 focus-visible:ring-1 focus-visible:ring-zinc-400"
               placeholder="Project title"
             />
             {errors.title && (
@@ -112,12 +128,12 @@ export function ProjectForm({ project }: ProjectFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="description" className="text-gray-300">Description *</Label>
+            <Label htmlFor="description" className="text-zinc-300 text-xs uppercase tracking-wider font-semibold">Description *</Label>
             <Textarea
               id="description"
               name="description"
               defaultValue={project?.description || ""}
-              className="bg-gray-800 border-gray-700 text-white min-h-[100px]"
+              className="bg-[#141313] border-[#27272A] text-white min-h-[100px] placeholder-zinc-600 focus-visible:ring-1 focus-visible:ring-zinc-400"
               placeholder="Project description"
             />
             {errors.description && (
@@ -126,12 +142,12 @@ export function ProjectForm({ project }: ProjectFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="techStack" className="text-gray-300">Tech Stack * (comma separated)</Label>
+            <Label htmlFor="techStack" className="text-zinc-300 text-xs uppercase tracking-wider font-semibold">Tech Stack * (comma separated)</Label>
             <Input
               id="techStack"
               name="techStack"
               defaultValue={defaultTechStack}
-              className="bg-gray-800 border-gray-700 text-white"
+              className="bg-[#141313] border-[#27272A] text-white placeholder-zinc-600 focus-visible:ring-1 focus-visible:ring-zinc-400"
               placeholder="React, Next.js, TypeScript"
             />
             {errors.techStack && (
@@ -140,16 +156,16 @@ export function ProjectForm({ project }: ProjectFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="imageFile" className="text-gray-300">Project Image (Upload)</Label>
+            <Label htmlFor="imageFile" className="text-zinc-300 text-xs uppercase tracking-wider font-semibold">Project Image (Upload)</Label>
             <Input
               id="imageFile"
               name="imageFile"
               type="file"
               accept="image/*"
-              className="bg-gray-800 border-gray-700 text-white cursor-pointer"
+              className="bg-[#141313] border-[#27272A] text-white cursor-pointer file:text-zinc-400 focus-visible:ring-1 focus-visible:ring-zinc-400"
             />
             {project?.imageUrl && (
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-zinc-500 mt-1">
                 Laman sekarang: <a href={project.imageUrl} target="_blank" rel="noreferrer" className="text-blue-400 hover:underline">Lihat Gambar</a>. Kosongkan jika tidak ingin merubah gambar.
               </p>
             )}
@@ -159,42 +175,42 @@ export function ProjectForm({ project }: ProjectFormProps) {
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="demoUrl" className="text-gray-300">Demo URL</Label>
+              <Label htmlFor="demoUrl" className="text-zinc-300 text-xs uppercase tracking-wider font-semibold">Demo URL</Label>
               <Input
                 id="demoUrl"
                 name="demoUrl"
                 defaultValue={project?.demoUrl || ""}
-                className="bg-gray-800 border-gray-700 text-white"
+                className="bg-[#141313] border-[#27272A] text-white placeholder-zinc-600 focus-visible:ring-1 focus-visible:ring-zinc-400"
                 placeholder="https://demo.com"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="repoUrl" className="text-gray-300">Repo URL</Label>
+              <Label htmlFor="repoUrl" className="text-zinc-300 text-xs uppercase tracking-wider font-semibold">Repo URL</Label>
               <Input
                 id="repoUrl"
                 name="repoUrl"
                 defaultValue={project?.repoUrl || ""}
-                className="bg-gray-800 border-gray-700 text-white"
+                className="bg-[#141313] border-[#27272A] text-white placeholder-zinc-600 focus-visible:ring-1 focus-visible:ring-zinc-400"
                 placeholder="https://github.com/..."
               />
             </div>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="order" className="text-gray-300">Display Order</Label>
+            <Label htmlFor="order" className="text-zinc-300 text-xs uppercase tracking-wider font-semibold">Display Order</Label>
             <Input
               id="order"
               name="order"
               type="number"
               defaultValue={project?.order || 0}
-              className="bg-gray-800 border-gray-700 text-white"
+              className="bg-[#141313] border-[#27272A] text-white focus-visible:ring-1 focus-visible:ring-zinc-400"
             />
           </div>
 
           <Button
             type="submit"
             disabled={loading}
-            className="w-full bg-white text-black hover:bg-gray-200"
+            className="w-full bg-white text-black hover:bg-zinc-200 transition-all duration-200 font-bold"
           >
             {loading && <Loader2 className="h-4 w-4 animate-spin mr-2" />}
             {isEdit ? "Update Project" : "Create Project"}

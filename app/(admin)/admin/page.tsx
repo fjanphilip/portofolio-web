@@ -40,8 +40,8 @@ export default async function AdminDashboard() {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-white">Dashboard</h1>
-        <p className="text-gray-400 mt-1">
+        <h1 className="text-3xl font-extrabold text-white tracking-tight font-display-xl uppercase">Dashboard</h1>
+        <p className="text-zinc-400 mt-1 text-sm font-light">
           Selamat datang di Admin Panel. Kelola portfolio Anda dari sini.
         </p>
       </div>
@@ -51,43 +51,43 @@ export default async function AdminDashboard() {
         {stats.map((stat) => (
           <Card
             key={stat.title}
-            className={`bg-black bg-gradient-to-br ${stat.gradient} border-gray-800 hover:border-gray-700 transition-all duration-300`}
+            className="bg-[#141313] border-[#27272A] hover:border-zinc-500 transition-all duration-300"
           >
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-gray-400">
+              <CardTitle className="text-xs font-mono uppercase tracking-wider text-zinc-400">
                 {stat.title}
               </CardTitle>
-              <stat.icon className={`h-5 w-5 ${stat.iconColor}`} />
+              <stat.icon className={`h-4 w-4 ${stat.iconColor}`} />
             </CardHeader>
             <CardContent>
-              <div className="text-4xl font-bold text-white">{stat.count}</div>
-              <p className="text-xs text-gray-500 mt-1">Total items</p>
+              <div className="text-4xl font-extrabold text-white font-mono tracking-tight">{stat.count}</div>
+              <p className="text-[10px] text-zinc-500 mt-1 uppercase tracking-wider font-mono">Total items</p>
             </CardContent>
           </Card>
         ))}
       </div>
 
       {/* Quick Info */}
-      <Card className="bg-gray-900/50 border-gray-800">
+      <Card className="bg-[#141313] border-[#27272A]">
         <CardHeader>
-          <CardTitle className="text-white flex items-center gap-2">
-            <TrendingUp className="h-5 w-5 text-gray-400" />
+          <CardTitle className="text-white flex items-center gap-2 text-sm font-mono uppercase tracking-wider">
+            <TrendingUp className="h-4 w-4 text-zinc-400" />
             Quick Info
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-3 text-sm text-gray-400">
+        <CardContent className="space-y-3 text-sm text-zinc-400 font-light">
           <p>
             • Gunakan menu di sidebar untuk mengelola{" "}
-            <strong className="text-white">Projects</strong>,{" "}
-            <strong className="text-white">Certificates</strong>, dan{" "}
-            <strong className="text-white">Skills</strong>.
+            <strong className="text-white font-medium">Projects</strong>,{" "}
+            <strong className="text-white font-medium">Certificates</strong>, dan{" "}
+            <strong className="text-white font-medium">Skills</strong>.
           </p>
           <p>
             • Setiap perubahan akan langsung terlihat di halaman publik
             portfolio.
           </p>
           <p>
-            • Atur <strong className="text-white">Display Order</strong> untuk
+            • Atur <strong className="text-white font-medium">Display Order</strong> untuk
             mengontrol urutan tampilan item.
           </p>
         </CardContent>

@@ -22,8 +22,8 @@ export default async function AdminProjectsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Projects</h1>
-          <p className="text-gray-400 mt-1">
+          <h1 className="text-3xl font-extrabold text-white tracking-tight font-display-xl uppercase">Projects</h1>
+          <p className="text-zinc-400 mt-1 text-sm font-light">
             Kelola daftar project portfolio Anda
           </p>
         </div>
@@ -31,23 +31,23 @@ export default async function AdminProjectsPage() {
       </div>
 
       {/* Table */}
-      <div className="rounded-lg border border-gray-800 overflow-hidden">
+      <div className="rounded-lg border border-[#27272A] bg-[#141313] overflow-hidden">
         <Table>
           <TableHeader>
-            <TableRow className="border-gray-800 hover:bg-transparent">
-              <TableHead className="text-gray-400">#</TableHead>
-              <TableHead className="text-gray-400">Title</TableHead>
-              <TableHead className="text-gray-400">Tech Stack</TableHead>
-              <TableHead className="text-gray-400">Links</TableHead>
-              <TableHead className="text-gray-400 text-right">Actions</TableHead>
+            <TableRow className="border-[#27272A] hover:bg-transparent">
+              <TableHead className="text-zinc-500 font-mono text-xs uppercase tracking-wider">#</TableHead>
+              <TableHead className="text-zinc-500 font-mono text-xs uppercase tracking-wider">Title</TableHead>
+              <TableHead className="text-zinc-500 font-mono text-xs uppercase tracking-wider">Tech Stack</TableHead>
+              <TableHead className="text-zinc-500 font-mono text-xs uppercase tracking-wider">Links</TableHead>
+              <TableHead className="text-zinc-500 font-mono text-xs uppercase tracking-wider text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {projects.length === 0 ? (
-              <TableRow className="border-gray-800">
+              <TableRow className="border-[#27272A]">
                 <TableCell
                   colSpan={5}
-                  className="text-center text-gray-500 py-12"
+                  className="text-center text-zinc-500 py-12"
                 >
                   Belum ada project. Klik &quot;Add Project&quot; untuk menambahkan.
                 </TableCell>
@@ -64,15 +64,15 @@ export default async function AdminProjectsPage() {
                 return (
                   <TableRow
                     key={project.id}
-                    className="border-gray-800 hover:bg-gray-900/50"
+                    className="border-[#27272A] hover:bg-[#09090B]/50 transition-colors"
                   >
-                    <TableCell className="text-gray-500 font-mono text-sm">
+                    <TableCell className="text-zinc-500 font-mono text-sm">
                       {index + 1}
                     </TableCell>
                     <TableCell>
                       <div>
                         <p className="font-medium text-white">{project.title}</p>
-                        <p className="text-sm text-gray-500 line-clamp-1 max-w-[300px]">
+                        <p className="text-sm text-zinc-500 line-clamp-1 max-w-[300px]">
                           {project.description}
                         </p>
                       </div>
@@ -83,7 +83,7 @@ export default async function AdminProjectsPage() {
                           <Badge
                             key={tech}
                             variant="secondary"
-                            className="bg-gray-800 text-gray-300 text-xs"
+                            className="bg-[#09090B] text-zinc-400 border border-[#27272A] hover:bg-[#09090B] text-[10px] tracking-wider uppercase font-mono"
                           >
                             {tech}
                           </Badge>
@@ -91,7 +91,7 @@ export default async function AdminProjectsPage() {
                         {techStack.length > 3 && (
                           <Badge
                             variant="secondary"
-                            className="bg-gray-800 text-gray-500 text-xs"
+                            className="bg-[#09090B] text-zinc-600 border border-[#27272A] hover:bg-[#09090B] text-[10px] tracking-wider uppercase font-mono"
                           >
                             +{techStack.length - 3}
                           </Badge>
@@ -99,13 +99,13 @@ export default async function AdminProjectsPage() {
                       </div>
                     </TableCell>
                     <TableCell>
-                      <div className="flex gap-2 text-xs">
+                      <div className="flex gap-2 text-xs font-mono">
                         {project.demoUrl && (
                           <a
                             href={project.demoUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-blue-400 hover:underline"
+                            className="text-blue-400 hover:text-blue-300 hover:underline"
                           >
                             Demo
                           </a>
@@ -115,7 +115,7 @@ export default async function AdminProjectsPage() {
                             href={project.repoUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-gray-400 hover:underline"
+                            className="text-zinc-400 hover:text-zinc-300 hover:underline"
                           >
                             Repo
                           </a>
@@ -128,6 +128,7 @@ export default async function AdminProjectsPage() {
                         <DeleteButton
                           id={project.id}
                           entityName="Project"
+                          itemName={project.title}
                           deleteAction={deleteProject}
                         />
                       </div>

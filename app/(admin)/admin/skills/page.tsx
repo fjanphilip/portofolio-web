@@ -13,10 +13,10 @@ import {
 } from "@/components/ui/table";
 
 const categoryColors: Record<string, string> = {
-  Frontend: "bg-blue-500/10 text-blue-400 border-blue-500/20",
-  Backend: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-  Design: "bg-purple-500/10 text-purple-400 border-purple-500/20",
-  Tools: "bg-orange-500/10 text-orange-400 border-orange-500/20",
+  Frontend: "bg-blue-950/20 text-blue-400 border-blue-900/30 font-mono text-[10px] tracking-wider uppercase",
+  Backend: "bg-emerald-950/20 text-emerald-400 border-emerald-900/30 font-mono text-[10px] tracking-wider uppercase",
+  Design: "bg-purple-950/20 text-purple-400 border-purple-900/30 font-mono text-[10px] tracking-wider uppercase",
+  Tools: "bg-orange-950/20 text-orange-400 border-orange-900/30 font-mono text-[10px] tracking-wider uppercase",
 };
 
 export default async function AdminSkillsPage() {
@@ -29,8 +29,8 @@ export default async function AdminSkillsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Skills</h1>
-          <p className="text-gray-400 mt-1">
+          <h1 className="text-3xl font-extrabold text-white tracking-tight font-display-xl uppercase">Skills</h1>
+          <p className="text-zinc-400 mt-1 text-sm font-light">
             Kelola daftar keahlian dan teknologi Anda
           </p>
         </div>
@@ -38,23 +38,23 @@ export default async function AdminSkillsPage() {
       </div>
 
       {/* Table */}
-      <div className="rounded-lg border border-gray-800 overflow-hidden">
+      <div className="rounded-lg border border-[#27272A] bg-[#141313] overflow-hidden">
         <Table>
           <TableHeader>
-            <TableRow className="border-gray-800 hover:bg-transparent">
-              <TableHead className="text-gray-400">#</TableHead>
-              <TableHead className="text-gray-400">Skill Name</TableHead>
-              <TableHead className="text-gray-400">Category</TableHead>
-              <TableHead className="text-gray-400">Order</TableHead>
-              <TableHead className="text-gray-400 text-right">Actions</TableHead>
+            <TableRow className="border-[#27272A] hover:bg-transparent">
+              <TableHead className="text-zinc-500 font-mono text-xs uppercase tracking-wider">#</TableHead>
+              <TableHead className="text-zinc-500 font-mono text-xs uppercase tracking-wider">Skill Name</TableHead>
+              <TableHead className="text-zinc-500 font-mono text-xs uppercase tracking-wider">Category</TableHead>
+              <TableHead className="text-zinc-500 font-mono text-xs uppercase tracking-wider">Order</TableHead>
+              <TableHead className="text-zinc-500 font-mono text-xs uppercase tracking-wider text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {skills.length === 0 ? (
-              <TableRow className="border-gray-800">
+              <TableRow className="border-[#27272A]">
                 <TableCell
                   colSpan={5}
-                  className="text-center text-gray-500 py-12"
+                  className="text-center text-zinc-500 py-12"
                 >
                   Belum ada skill. Klik &quot;Add Skill&quot; untuk menambahkan.
                 </TableCell>
@@ -63,9 +63,9 @@ export default async function AdminSkillsPage() {
               skills.map((skill, index) => (
                 <TableRow
                   key={skill.id}
-                  className="border-gray-800 hover:bg-gray-900/50"
+                  className="border-[#27272A] hover:bg-[#09090B]/50 transition-colors"
                 >
-                  <TableCell className="text-gray-500 font-mono text-sm">
+                  <TableCell className="text-zinc-500 font-mono text-sm">
                     {index + 1}
                   </TableCell>
                   <TableCell>
@@ -74,12 +74,12 @@ export default async function AdminSkillsPage() {
                   <TableCell>
                     <Badge
                       variant="outline"
-                      className={`${categoryColors[skill.category] || "text-gray-400 border-gray-600"}`}
+                      className={`${categoryColors[skill.category] || "text-zinc-400 border-zinc-700"}`}
                     >
                       {skill.category}
                     </Badge>
                   </TableCell>
-                  <TableCell className="text-gray-500 font-mono text-sm">
+                  <TableCell className="text-zinc-500 font-mono text-sm">
                     {skill.order}
                   </TableCell>
                   <TableCell className="text-right">
@@ -88,6 +88,7 @@ export default async function AdminSkillsPage() {
                       <DeleteButton
                         id={skill.id}
                         entityName="Skill"
+                        itemName={skill.name}
                         deleteAction={deleteSkill}
                       />
                     </div>
